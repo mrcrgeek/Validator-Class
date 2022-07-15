@@ -1,7 +1,7 @@
 # Validator-Class
 This Validate Class is for those who are looking for a validator that returns a code for every each error (Laravel/Api)
 
-# Requirement
+# Requirements
 Add ValidationClass <br><br>
 ![Screenshot 2022-07-15 182325](https://user-images.githubusercontent.com/79410109/179263454-b4355e87-2d6f-4319-a56e-e1604505508b.png)
 
