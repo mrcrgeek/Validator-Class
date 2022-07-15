@@ -91,6 +91,10 @@ class Validation
                         {
                             if(is_array($message = $this->check_file_size($request->file($key), $input['file'] ['max'], $key))) $errors[$key] [] = $message;
                         }
+                        elseif (isset($input['file'] ['types']))
+                        {
+                            if(is_array($message = $this->check_valid_file_types($request->file($key), $input['file'] ['types'], $key))) $errors[$key] [] = $message;
+                        }
                     }
 
                     else
