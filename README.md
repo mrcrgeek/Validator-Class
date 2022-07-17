@@ -40,3 +40,9 @@ parameters :
 3. url_id
 4. return_data(bool)
 5. return_error(bool)
+
+# Developers
+* mrcrgeek(barbod_alinezhad) : ValidatorClass & ValidationException
+* Github = https://github.com/mrcrgeek
+* Alireza_Habibzade : CustomException
+* Github = https://github.com/thePowerOfCreation21
