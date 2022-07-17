@@ -11,7 +11,7 @@ class Validation
 
     public function __construct()
     {
-
+        //empty for now :)
     }
 
     /**
@@ -183,11 +183,6 @@ class Validation
 
     protected function check_in_collection($input, array $collection, string $key):mixed
     {
-        // if(count($collection) < 1)
-        // {
-        //     throw new CustomException("the Collection list should more than ones", 90, 500);
-        // }
-
         if(!in_array($input, $collection))
         {
             return [
