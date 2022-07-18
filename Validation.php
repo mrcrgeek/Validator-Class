@@ -186,7 +186,7 @@ class Validation
         if(!in_array($input, $collection))
         {
             return [
-                'message' => "the $key is not in collection",
+                'message' => "the $key is not in collection : ".implode(', ', $collection),
                 'code' => 3
             ];
         }
@@ -244,7 +244,7 @@ class Validation
         if(!filter_var($input, FILTER_VALIDATE_EMAIL))
         {
             return [
-                'message' => "the $key should be valid email",
+                'message' => "The $key must be a valid email address",
                 'code' => 6
             ];
         }
@@ -330,7 +330,7 @@ class Validation
 
     public function check_file_size($input, int $max = null, string $key):mixed
     {
-        if($this->check_is_file($input, $key))
+        if(!is_array($this->check_is_file($input, $key)))
         {
             $input_file_size = round(filesize($input) / 1024000, 1);
 
@@ -364,16 +364,14 @@ class Validation
 
     public function check_valid_file_types($input, array $file_types, string $key):mixed
     {
-        if($this->check_is_file($input, $key))
+        if(!is_array($this->check_is_file($input, $key)))
         {
             $get_type_of_file = $input->extension();
 
             if(!in_array($get_type_of_file, $file_types))
             {
-                $convert_to_json = json_encode($file_types);
-
                 return [
-                    'message' => "the file type should be in $convert_to_json collection",
+                    'message' => "the file type should be in collection : ".implode(', ', $file_types),
                     'code' => 12
                 ];
             }
