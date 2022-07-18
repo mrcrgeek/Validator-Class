@@ -41,6 +41,9 @@ parameters :
 4. return_data(bool)
 5. return_error(bool)
 
+# Example of how return error
+![Screenshot 2022-07-18 151634](https://user-images.githubusercontent.com/79410109/179496624-8756b074-c7e7-42ac-97be-798b267c2e1c.png)
+
 # Developers
 * mrcrgeek(barbod_alinezhad) : ValidatorClass & ValidationException
 * Github = https://github.com/mrcrgeek
