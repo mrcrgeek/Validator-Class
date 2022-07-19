@@ -77,6 +77,11 @@ class Validation
                         if(is_array($message = $this->check_valid_file_types($request->file($key), $input['types'], $key))) $errors[$key] [] = $message;
                     }
 
+                    else if($input == "date")
+                    {
+                        if(is_array($message = $this->check_date($request->input($key), $key))) $errors[$key] [] = $message;
+                    }
+
                     else if(isset($input['max']) || isset($input['min']))
                     {
                         $max = isset($input['max']) ? $input['max'] : null;
@@ -308,6 +313,25 @@ class Validation
      * @return mixed
      */
 
+    protected function check_date($input, string $key):mixed
+    {
+        if(!strtotime($input))
+        {
+            return [
+                'message' => "the $key should be a valid date",
+                'code' => 13
+            ];
+        }
+
+        return true;
+    }
+
+    /**
+     * @param $input
+     * @param string $key
+     * @return mixed
+     */
+
     protected function check_is_file($input, string $key):mixed
     {
         if(!is_file($input))
@@ -328,7 +352,7 @@ class Validation
      * @return mixed
      */
 
-    public function check_file_size($input, int $max = null, string $key):mixed
+    protected function check_file_size($input, int $max = null, string $key):mixed
     {
         if(!is_array($this->check_is_file($input, $key)))
         {
@@ -362,7 +386,7 @@ class Validation
      * @return mixed
      */
 
-    public function check_valid_file_types($input, array $file_types, string $key):mixed
+    protected function check_valid_file_types($input, array $file_types, string $key):mixed
     {
         if(!is_array($this->check_is_file($input, $key)))
         {
@@ -371,7 +395,7 @@ class Validation
             if(!in_array($get_type_of_file, $file_types))
             {
                 return [
-                    'message' => "the file type should be in collection : ".implode(', ', $file_types),
+                    'message' => "the $key type should be in collection : ".implode(', ', $file_types),
                     'code' => 12
                 ];
             }
