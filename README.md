@@ -30,6 +30,7 @@ valid validation keys:
 8. file_types : ["file" => ["types" => ["jpg", "png"]]]
 9. max or min of char : ["max" => "255", "min" => "6"]
 10. file_max_size : ["file" => ["max" => "5000000"]]
+11. date
 
 After configuring validation rules we have to passed the parameters to validate method <br><br>
 ![Screenshot 2022-07-15 212109](https://user-images.githubusercontent.com/79410109/179270693-3f174a10-be9a-4eb5-ba06-cd9e835e5fc1.png)
